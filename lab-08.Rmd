@@ -47,11 +47,19 @@ weather %>%
 
 ```{r}
 
+weather_noNA <- weather %>%
+  drop_na()
+
+
 ```
 
 2. Which cities are the ones with more rain days? To do this, let's analyze the `RainToday` variable. 
 
 ```{r}
+
+weather %>%
+  ggplot(aes(x = Location, y = RainToday)) +
+  geom_point()
 
 ```
 
@@ -67,6 +75,12 @@ weather_Portland <- weather %>%
 1. Try to predict `RainTomorrow` by fitting a linear regression using the variable `RainToday` and print the output using `tidy()`.
 
 ```{r}
+Rain_fit <- logistic_reg() %>%
+  set_engine("glm") %>%
+  fit(RainTomorrow ~ RainToday, data = weather_Portland)
+tidy(Rain_fit)
+
+predict(Rain_fit, weather_Portland)
 
 ```
 
