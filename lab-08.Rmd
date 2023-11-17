@@ -1,6 +1,6 @@
 ---
 title: "Lab 08 - Predicting rain"
-author: "INSERT NAME HERE"
+author: "Kaitlin Fong"
 date: "`r Sys.Date()`"
 output: html_document
 ---
@@ -195,7 +195,7 @@ weather_pred2 %>%
 
 4. Now focus on the second model. Consider several thresholds for predicting `RainTomorrow` and look at the number of false positives and false negatives. For example:
 
-```{r}
+```{r eval = F}
 cutoff_prob <- 0.5
 weather_pred2 %>%
   mutate(
